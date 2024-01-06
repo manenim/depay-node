@@ -2,13 +2,15 @@ import express from 'express'
 import depayRoute from './src/routes/depay.js'
 
 const app = express()
+app.use(express.json())
 
 app.get('/', (req, res) => {
     return res.send('tested hello world')
 })
 
 
-app.use('/api', depayRoute)
+app.use('/depay', depayRoute)
+
 
 
 
