@@ -1,7 +1,9 @@
+import verifyRequest from "../utils/verifyRequest.js";
 
 
 export const configuration = async (req, res) => {
-     if(!await verifyRequest(req)){
+  try {
+        if(!await verifyRequest(req)){
         return res.status(401).json({ error: "UNAUTHORIZED" });
         }
 
@@ -22,6 +24,12 @@ export const configuration = async (req, res) => {
 
   res.setHeader('x-signature', signResponse(JSON.stringify(configuration)));
   res.status(200).json(configuration);
+
+    
+  } catch (error) {
+    console.log(error)
+  }
+ 
 }
 
 export const callback = async (req, res) => {
