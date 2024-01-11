@@ -1,9 +1,9 @@
 
 
 export const configuration = async (req, res) => {
-    //  if(!await verifyRequest(req)){
-    //     return res.status(401).json({ error: "UNAUTHORIZED" });
-    //     }
+     if(!await verifyRequest(req)){
+        return res.status(401).json({ error: "UNAUTHORIZED" });
+        }
 
     console.log('hello')
 
@@ -20,7 +20,7 @@ export const configuration = async (req, res) => {
   // configuration.forward_to = "https://mydomain.com/payment/confirmation/SOMEID"
   //
 
-//   res.setHeader('x-signature', signResponse(JSON.stringify(configuration)));
+  res.setHeader('x-signature', signResponse(JSON.stringify(configuration)));
   res.status(200).json(configuration);
 }
 
