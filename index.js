@@ -117,7 +117,7 @@ app.post('/depay/configuration', async(req, res)=>{
 
   const configuration = {
     accept: [
-      { blockchain: 'ethereum', token: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', amount: price*req.body.quantity || 0.000001 }
+      { blockchain: 'ethereum', token: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', amount: price*req.body.quantity || 0.000001, reciever: '0x68D0fcA67C4457887E75441aD7c19ab66bE0bD30' }
     ]
   };
 
