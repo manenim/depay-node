@@ -3,9 +3,9 @@ import verifyRequest from "../utils/verifyRequest.js";
 
 export const configuration = async (req, res) => {
   try {
-        if(!await verifyRequest(req)){
-        return res.status(401).json({ error: "UNAUTHORIZED" });
-        }
+        // if(!await verifyRequest(req)){
+        // return res.status(401).json({ error: "UNAUTHORIZED" });
+        // }
 
     console.log('hello')
 
