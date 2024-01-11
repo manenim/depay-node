@@ -5,11 +5,13 @@ export const configuration = async (req, res) => {
     //     return res.status(401).json({ error: "UNAUTHORIZED" });
     //     }
 
+    console.log('hello')
+
     const price = 1.00;
 
     const configuration = {
         accept: [
-        { blockchain: 'ethereum', token: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', amount: price*req.body.quantity }
+        { blockchain: 'ethereum', token: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', amount: price*req.body.quantity || 0.0001 }
         ]
     };
 
