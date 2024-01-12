@@ -22,6 +22,8 @@
 
 
 const { Buffer } = require("node:buffer");
+
+import { Buffer } from "node:buffer";
 import crypto from 'node:crypto';
 import express from 'express';
 import { verify } from '@depay/js-verify-signature';
