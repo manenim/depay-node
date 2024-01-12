@@ -22,9 +22,8 @@
 
 
 const { Buffer } = require("node:buffer");
-import bodyParser from 'body-parser';
 import crypto from 'node:crypto';
-import express, {Express, Request, Response} from 'express';
+import express from 'express';
 import { verify } from '@depay/js-verify-signature';
 
 const app = express();
