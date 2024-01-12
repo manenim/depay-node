@@ -35,7 +35,8 @@ app.use(express.json());
 // THE FOLLOWING PLACEHOLDERS NEED TO BE CONFIGURED!
 
 // Identifies your integration
-const integrationId = "SET_YOUR_INTEGRATION_ID";
+// const integrationId = "SET_YOUR_INTEGRATION_ID";
+const integrationId = "3a1a3121-fee0-47ef-9845-89d5c75f611a";
 
 // Used to verify communication from DePay APIs to your integration
 // Provided by app.depay.com
@@ -117,7 +118,7 @@ app.post('/depay/configuration', async(req, res)=>{
 
   const configuration = {
     accept: [
-      { blockchain: 'ethereum', token: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', amount: price*req.body.quantity || 0.000001, reciever: '0x68D0fcA67C4457887E75441aD7c19ab66bE0bD30' }
+      { blockchain: 'polygon', token: '0x2791bca1f2de4661ed88a30c99a7a9449aa84174', receiver: '0x940cFb42e7b2c0e4Ce435C640A5452109222d174', amount: price*req.body.quantity || 0.000001 }
     ]
   };
 
@@ -163,7 +164,7 @@ app.post('/depay/callback', async(req, res)=>{
   //
 
   res.setHeader('x-signature', getResponseSignature(JSON.stringify(responseData)));
-  res.status(200).json(responseData);
+  res.status(200).json(responseData || 'congrats');
 });
 
 app.listen(port, ()=> {
