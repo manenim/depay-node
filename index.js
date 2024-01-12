@@ -84,7 +84,9 @@ const privateKey = "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAAS
 //   `);
 // });
 
-const verifyRequest = async(req)=>{
+const verifyRequest = async (req) => {
+    
+    console.log("hello", req.headers['x-signature'], req.body)
   
   return await verify({
     signature: req.headers['x-signature'],
@@ -111,9 +113,9 @@ const getResponseSignature = (responseString)=>{
 
 app.post('/depay/configuration', async(req, res)=>{
 
-  if(!await verifyRequest(req)){
-    return res.status(401).json({ error: "UNAUTHORIZED" });
-  };
+//   if(!await verifyRequest(req)){
+//     return res.status(401).json({ error: "UNAUTHORIZED" });
+//   };
 
   const price = 1.00;
 
