@@ -120,12 +120,12 @@ app.post('/depay/configuration', async(req, res)=>{
   const price = 1.00;
 
     const configuration = {
-//       amount: {
-//     "currency": currency || "GBP",
-//     "fix": req.body.quantity || 100
-//   },
+      amount: {
+        currency: req.body.currency || "GBP",
+        fix: req.body.quantity || 100
+    },
     accept: [
-      { blockchain: 'polygon', token: '0x2791bca1f2de4661ed88a30c99a7a9449aa84174', receiver: '0xA04FED1cab1008F7cA4E83D43B52cd561a10db57', amount: price*req.body.quantity || 0.000001 }
+      { blockchain: 'polygon', token: '0x2791bca1f2de4661ed88a30c99a7a9449aa84174', receiver: '0xA04FED1cab1008F7cA4E83D43B52cd561a10db57' }
     ]
   };
 
